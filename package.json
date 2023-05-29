@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "@babel/cli": "^7.21.5",
+    "@babel/core": "^7.22.1",
+    "@babel/preset-env": "^7.22.2",
+    "axios": "^1.4.0",
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^9.1.2",
+    "cli": "^1.0.1",
+    "core-js": "^3.30.2",
+    "jquery": "^3.7.0",
+    "json-server": "^0.17.3",
+    "webpack": "^5.84.1",
+    "webpack-cli": "^5.1.1"
+  }
+}
