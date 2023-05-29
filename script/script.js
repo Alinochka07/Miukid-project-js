@@ -7,11 +7,12 @@ import $ from "jquery";
     add_to_card = require("./module/add_to_card.js");
     delete_items_from_cart = require("./module/delete_from_cart.js"),
     count_items_in_cart = require("./module/count_items_in_cart.js"),
+    calculate_cart = require("./module/calculate_cart.js"),
 
     get_product_to_cart();
     search_dropdown();
-    delete_items_from_cart(count_items_in_cart);
-    add_to_card(delete_items_from_cart, count_items_in_cart);
+    delete_items_from_cart(calculate_cart, count_items_in_cart);
+    add_to_card(delete_items_from_cart, calculate_cart, count_items_in_cart);
 
 
 
