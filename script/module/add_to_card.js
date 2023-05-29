@@ -69,16 +69,14 @@ function add_to_card(funct_delete_items_from_cart, calculate_cart, count_items_i
         document.querySelector(".product_list").addEventListener("click", event => {
                 
                 alert("This product has been successfully added to your cart!");
-                
 
                 if(event.target.parentNode.classList.contains("product")) return false;
-
                 var img = event.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.querySelectorAll(".image img");
                 var ttl = event.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.querySelectorAll(".title");
                 var curr = event.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.querySelectorAll(".currency");
                 var prc = event.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.querySelectorAll(".n_price");
                 
-                event.preventDefault();
+                
                 addToCartFunction(img, ttl, curr, prc);
 
         });

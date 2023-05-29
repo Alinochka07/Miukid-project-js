@@ -7,23 +7,23 @@ function count_items_in_cart() {
 
 };
 
-const tabs = {
-    list_of_tabs: [
-            "Bestsellers",
-            "New products",
-            "On sale"
-    ] 
-};
+// const tabs = {
+//     list_of_tabs: [
+//             "Bestsellers",
+//             "New products",
+//             "On sale"
+//     ] 
+// };
 
-let create_listing = document.createElement("div");
+// let create_listing = document.createElement("div");
 
-tabs.list_of_tabs.forEach((item, i) => {
-    create_listing.innerHTML += `<div class="card-header"> ${item}
-                                        </div>
-                                        <div class="card-body">
-                                            Lorem ipsum dolor sit amet, 
-                                        </div>`;
-});
-document.querySelector(".block_title #display #accordion").innerHTML += create_listing.outerHTML;
+// tabs.list_of_tabs.forEach((item, i) => {
+//     create_listing.innerHTML += `<div class="card-header"> ${item}
+//                                         </div>
+//                                         <div class="card-body">
+//                                             Lorem ipsum dolor sit amet, 
+//                                         </div>`;
+// });
+// document.querySelector(".block_title #display #accordion").innerHTML += create_listing.outerHTML;
 
 export default count_items_in_cart;

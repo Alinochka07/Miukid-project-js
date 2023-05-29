@@ -17,11 +17,11 @@ import $ from "jquery";
 
 }());
 
-$(document).ready(function(){
-    $("#accordion.card-header").on("click", accord);
-});
+// $(document).ready(function(){
+//     $("#accordion.card-header").on("click", accord);
+// });
 
-function accord() {
-    $("#accordion.card-body").not($(this).next()).slideUp(500);
-    $(this).next().slideToggle(1000);
-};
+// function accord() {
+//     $("#accordion.card-body").not($(this).next()).slideUp(500);
+//     $(this).next().slideToggle(1000);
+// };
