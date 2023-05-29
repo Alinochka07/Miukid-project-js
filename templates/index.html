@@ -1,15 +1,847 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MIUKID</title>
-    <link href="../styles/fontawesome/css/all.css" rel="stylesheet">
-    <link href="../styles/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../styles/style.css" rel="stylesheet">
-</head>
-<body>
+<html>
+    <head>
+        <title>MIUKID</title>
+        <link href="../styles/fontawesome/css/all.css" rel="stylesheet">
+        <link href="../styles/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../styles/style.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <script src="../styles/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </head>
+    <body>
+        
+        
+        <header> <!--верхнее меню-->
+            <div class="verhnee_menu">
+                <div class="container">
+                    <div class="left"> <!--левая сторона-->
+                        <ul class="ul_li b-r">
+                            <li><i class="fas fa-bullhorn"></i> Sms Default Welcome!</li>
+                            <li>
+                                <span class="icon_msg"><i class="fas fa-gift"></i><span class="msg">2</span></span>
+                                <span>   Gift Vouchers</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="right"> <!--правая сторона-->
+                        <ul class="ul_li b-r">
+                            <li><i class="fas fa-globe"></i> Language: EN</li>
+                            <li class="currency_change">
+                                <i class="fas fa-dollar-sign"></i>Currency: USD
+                                    <div class="choose_currency">
+                                        <span><select name="curr" id="select_curr" class="c2">
+                                                <option value="none">Choose</option>
+                                                <option value="usd" id="usd">USD</option>
+                                                <option value="rub" id="rub">RUB</option>
+                                                <option value="euro" id="euro">EURO</option>
+                                            </select>
+                                        <img id="switch" src="../img/flags/switch.png" alt=""></span>
+                                        
+                                        
+                                            
+                                        
+                                        <div id="converter">
+                                            <p id="foreign_l">
+                                                <!-- <input id="foreign" type="text" placeholder="" class=""> -->
+                                            </p>
+                                            <p id="KGS">
+                                                <!-- <input type="text" placeholder="KGS" id="kgz_conv"> -->
+                                            </p>
+                                        </div>
+                                    </div>
+                                
+                            </li>
+                            
+                            <li><i class="fas fa-user"></i> <span><strong>Sign in</strong></span> / Register </li>
+                        </ul>
+                    </div>
+                </div>
+            </div> <!--verhnee_menu-->
+            <div class="center_menu">
+                <div class="container">
+                    <ul class="ul_li">
+                        <li>
+                            <img src="../img/header/Logo.png" alt="logo" id="logo">
+                        </li>
+                        <li>
+                            <div class="left">
+                                <span class="gray-round">
+                                    <i class="far fa-calendar-alt"></i>
+                                </span>
+                            </div>
+                            <div class="right ml-10">
+                                <p>Mon - Sat 8h00 - 18h00</p>
+                                <p><span>Sunday </span><span class="red">CLOSED</span></p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="left">
+                                <span class="gray-round">
+                                    <i class="fas fa-bookmark"></i>
+                                </span>
+                            </div>
+                            <div class="right ml-10">
+                                <p>Every Week Sales!</p>
+                                <p>Discount <span class="yellow">Up To 50% Off.</span></p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="left">
+                                <span class="gray-round">
+                                    <i class="fas fa-phone-alt"></i>
+                                </span>
+                            </div>
+                            <div class="right ml-10">
+                                <p>Have Questions?</p>
+                                <p>Call <span class="blue">1900 - 819898.</span></p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div> <!--center_menu-->
+            <div class="lower_menu">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="col-sm-3 left">
+                                <ul class="hover_menu">
+                                    <li>
+                                        <a class="chevr main_menu" href="#">
+                                            <p>Home
+                                            <span class="down">
+                                                <i class="fas fa-chevron-down"></i>
+                                            </span>
+                                            <span class="up">
+                                                <i class="fas fa-chevron-up"></i>
+                                            </span></p> 
+                                        </a>
+                                        <div class="dropdown_menu submenu home">
+                                            <ul>
+                                                <h6>Home Pages</h6>
+                                                <li>Homemenu1</li>
+                                                <li>Homemenu2</li>
+                                                <li>Homemenu3</li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-3 left">
+                                <ul class="hover_menu">
+                                    <li>
+                                        <a href="" class="main_menu"><p>Products</p></a>
+                                        <div class="dropdown_menu submenu products">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <ul>
+                                                        <h6>Shop Pages</h6>
+                                                        <li>Shop Pages 1</li>
+                                                        <li>Shop Pages 2</li>
+                                                        <li>Shop Pages 3</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <ul>
+                                                        <h6>Products</h6>
+                                                        <li>Product 1</li>
+                                                        <li>Product 2</li>
+                                                        <li>Product 3</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <ul>
+                                                        <h6>Other Pages</h6>
+                                                        <li>Contact us</li>
+                                                        <li>Quick view</li>
+                                                        <li>Popup newsletter</li>
+                                                    </ul>
+                                                </div>
+                                            </div> <!--row-->
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-3 left">
+                                <ul class="hover_menu">
+                                    <li>
+                                        <a href="" class="main_menu"><p>Sale</p></a>
+                                        <div class="dropdown_menu submenu sale">
+                                            <ul>
+                                                <li><img src="../img/header/new-trending.jpeg" alt="new_trending" id="new_trending">
+                                                    <p>New Trending</p></li>
+                                                <li><img src="../img/header/new-lookbooks.jpeg" alt="new_lookbooks" id="new_lookbooks">
+                                                    <p>New Lookbooks</p></li>
+                                                <li><img src="../img/header/new-trending.jpeg" alt="new_trending" id="new_trending2">
+                                                    <p>On sale</p></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-3 left">
+                                <ul class="hover_menu">
+                                    <li>
+                                        <a href="" class="main_menu"><p>Blogs</p></a>
+                                        <div class="dropdown_menu submenu blogs">
+                                            <ul>
+                                                <h6>Blog</h6>
+                                                <li>Blogs menu 1</li>
+                                                <li>Blogs menu 2</li>
+                                                <li>Blogs menu 3</li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="right">
+                                <ul class="ul_li">
+                                    <li>
+                                        <div class="search_method">
+                                            <div class="search_form">
+                                                <form action="?search=#" method="GET" class="form_search">
+                                                    <input type="text" class="search"  placeholder="Search..." name="search">
+                                                    <button type="submit" class="search_button">
+                                                        <i class="fas fa-search"></i>
+                                                    </button>
+                                                </form>
+                                            </div> <!--search_form-->
+                                            <div class="search-drop-down">
+                                                
+                                            </div>
+                                        </div> 
+                                    </li>
+                                   
+                                    <li>
+                                        <div class="left">
+                                            <div class="cart_menu">
+                                                <a href="">
+                                                    <span class="round-yellow">
+                                                        <i class="fas fa-shopping-bag"></i>
+                                                    </span>
+                                                    <div class="cart_submenu">
+                                                        <div class="item">
+                                                            <ul class="bag_items">
+
+                                                            </ul>
+                                                        </div>
+                                                        
+                                                        
+                                                        <div class="cart_total">
+                                                            <hr class="cart-hr">
+                                                            <div class="total_sum">
+                                                                <div class="row">
+                                                                    <div class="col-sm-6">
+                                                                        <p class="light">Total in cart</p>
+                                                                    </div>
+                                                                    <div class="col-sm-6 total_in_my_cart right">
+                                                                        <p class="right">
+                                                                            <span class="my_currency">$ </span>
+                                                                            <span class="total_in_cart">00</span></p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            
+                                                            <div class="row">
+                                                                <div class="col-sm-12">
+                                                                    <div class="btn_call">
+                                                                        <a href="">
+                                                                            <p>CHECK OUT</p>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="right ml-10 cart">
+                                            <a href="#"><p>My Cart</p></a>
+                                            <p class="total_in_cart">
+                                                <span class="quantity">0 </span>
+                                                <span class="gray">/</span>
+                                                <span class="total_in_this_cart gray">$ 00</span>
+                                            </p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--lower_menu-->
+       </header>
+      
+       <main>
+            <div class="container">
+                <!-- <section>
+                    <div class="col-md-4">
+                        <h5>The cart for item purchasing</h5>
+                        <form action="#" class="form-group">
+                            <p>
+                                <input type="text" placeholder="Enter you name" class="form-control name" required>
+                                <input type="text" placeholder="Enter you family name" class="form-control" name="fname" required>
+                            </p>
+                            <p>
+                                <input type="text" placeholder="Your phone number" class="form-control" name="phone" required>
+                            </p>
+                            <p>
+                                <input type="text" placeholder="Your address" class="form-control" name="address" required>
+                            </p>
+                            <button type="submit" id="form_submit_btn" class="btn btn-primary">Submit</button>
+                            <button type="button" id="form_clear_btn" class="btn btn-danger">Reset</button>
+                        </form>
+                    </div>
+                </section> -->
+                <section id="product">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="block_title b-r">
+                                <div class="left">
+                                    <h2>Featured</h2>
+                                </div>
+                                <div class="right">
+                                    <span><a href="">View All Products <i class="fas fa-arrow-circle-right"></i></a></span>
+                                    <div class="space-between">
+                                        <a href="">
+                                            <div class="gray-round">
+                                                <i class="fas fa-chevron-left"></i>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="space-between">
+                                        <a href="">
+                                            <div class="gray-round">
+                                                <i class="fas fa-chevron-right"></i>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div id="display" class="accordeon">
+                                    <div id="accordion"> 
+                                        
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+
+
+                       
+                        <div class="col-sm-12">
+                            <div class="body_block">
+                                <div class="product_list">
+                                    <!-- Fetched products from json server are here -->
+                                </div> <!--product_list-->
+                            </div>
+                        </div>
+                        
+                    </div> <!--row-->
+                </section>
+                <section id="banner" class="mt-5">
+                    <div class="row">
+                        <div class="col-md-8 pe-2">
+                            <img src="../img/banners/banner1.png" alt="banner1">
+                        </div>
+                        <div class="col-md-4">
+                            <img src="../img/banners/banner2.png" alt="banner2">
+                        </div>
+                    </div>
+                </section>
+                <section id="bestseller" class="">
+                    <div class="row mb-4">
+                        <div class="col-sm-8">
+                            <div class="row">
+                                <div class="block_title b-r">
+                                    <div class="left">
+                                        <p>Bestsellers</p>
+                                    </div>
+                                    <div class="right">
+                                        <span><a href="">View All Products <i class="fas fa-arrow-circle-right"></i></a></span>
+                                        <div class="space-between">
+                                            <a href="">
+                                                <div class="gray-round">
+                                                    <i class="fas fa-chevron-left"></i>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="space-between">
+                                            <a href="">
+                                                <div class="gray-round">
+                                                    <i class="fas fa-chevron-right"></i>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row"> <!--items 1,2-->
+                                <div class="col-sm-6">
+                                    <div class="items">
+                                        <div class="best_seller">
+                                            <div class="best left">
+                                                <a href="#">
+                                                    <div class="image_product">
+                                                        <img src="../img/product/product2/img1.jpeg" alt="bestseller_product">
+                                                        <div class="comment2 orange">
+                                                            <i class="fas fa-comment"></i>
+                                                            <span>-25%</span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="best_products left">
+                                                <div class="body_product best">
+                                                    <a href="" class="no_a_decoration"><p class="title">Animal Print Sweatshirt</p></a>
+                                                    <div class="block_stars">
+                                                        <div class="stars">
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                        </div>
+                                                        <div class="reviews">
+                                                            <span>6 Review(s)</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="price">
+                                                        <span class="currency">$</span>
+                                                        <span class="n_price">36</span>
+                                                        <del>$42.00</del>
+                                                </div>
+                                                    <div class="buttons disp_none">
+                                                        <ul class="ul_li">
+                                                            <li>
+                                                                <a href="#" class="add_to_card">
+                                                                    <span class="gray-round">
+                                                                        <i class="fas fa-shopping-bag"></i>
+                                                                    </span>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <span class="gray-round">
+                                                                    <i class="fas fa-balance-scale"></i>
+                                                                </span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="gray-round">
+                                                                    <i class="fas fa-heart"></i>
+                                                                </span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> <!--items-->
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="items">
+                                        <div class="best_seller">
+                                            <div class="best left">
+                                                <a href="#">
+                                                    <div class="image_product">
+                                                        <img src="../img/product/product2/img2.jpeg" alt="bestseller_product">
+                                                        <div class="comment2 orange">
+                                                            <i class="fas fa-comment"></i>
+                                                            <span>-25%</span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="best_products left">
+                                                <div class="body_product best">
+                                                    <p class="title">Animal Print Sweatshirt</p>
+                                                    <div class="block_stars">
+                                                        <div class="stars">
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                        </div>
+                                                        <div class="reviews">
+                                                            <span>6 Review(s)</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="price">
+                                                        <span class="currency">$</span>
+                                                        <span class="n_price">36</span>
+                                                        <del>$42.00</del>
+                                                </div>
+                                                    <div class="buttons disp_none">
+                                                        <ul class="ul_li">
+                                                            <li>
+                                                                <a href="#" class="add_to_card">
+                                                                    <span class="gray-round">
+                                                                        <i class="fas fa-shopping-bag"></i>
+                                                                    </span>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <span class="gray-round">
+                                                                    <i class="fas fa-balance-scale"></i>
+                                                                </span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="gray-round">
+                                                                    <i class="fas fa-heart"></i>
+                                                                </span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!--row-->
+                            <div class="row"> <!-- items 3,4-->
+                                <div class="col-sm-6">
+                                    <div class="items">
+                                        <div class="best_seller">
+                                            <div class="best left">
+                                                <a href="#">
+                                                    <div class="image_product">
+                                                        <img src="../img/product/product2/img1.jpeg" alt="bestseller_product">
+                                                        <div class="comment2 orange">
+                                                            <i class="fas fa-comment"></i>
+                                                            <span>-25%</span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="best_products left">
+                                                <div class="body_product best">
+                                                    <p class="title">Animal Print Sweatshirt</p>
+                                                    <div class="block_stars">
+                                                        <div class="stars">
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                        </div>
+                                                        <div class="reviews">
+                                                            <span>6 Review(s)</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="price">
+                                                        <span class="currency">$</span>
+                                                        <span class="n_price">36</span>
+                                                        <del>$42.00</del>
+                                                </div>
+                                                    <div class="buttons disp_none">
+                                                        <ul class="ul_li">
+                                                            <li>
+                                                                <a href="#" class="add_to_card">
+                                                                    <span class="gray-round">
+                                                                        <i class="fas fa-shopping-bag"></i>
+                                                                    </span>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <span class="gray-round">
+                                                                    <i class="fas fa-balance-scale"></i>
+                                                                </span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="gray-round">
+                                                                    <i class="fas fa-heart"></i>
+                                                                </span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> <!--items-->
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="items">
+                                        <div class="best_seller">
+                                            <div class="best left">
+                                                <a href="#">
+                                                    <div class="image_product">
+                                                        <img src="../img/product/product2/img2.jpeg" alt="bestseller_product">
+                                                        <div class="comment2 orange">
+                                                            <i class="fas fa-comment"></i>
+                                                            <span>-25%</span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="best_products left">
+                                                <div class="body_product best">
+                                                    <p class="title">Animal Print Sweatshirt</p>
+                                                    <div class="block_stars">
+                                                        <div class="stars">
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                        </div>
+                                                        <div class="reviews">
+                                                            <span>6 Review(s)</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="price">
+                                                        <span class="currency">$</span>
+                                                        <span class="n_price">36</span>
+                                                        <del>$42.00</del>
+                                                </div>
+                                                    <div class="buttons disp_none">
+                                                        <ul class="ul_li">
+                                                            <li>
+                                                                <a href="#" class="add_to_card">
+                                                                    <span class="gray-round">
+                                                                        <i class="fas fa-shopping-bag"></i>
+                                                                    </span>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <span class="gray-round">
+                                                                    <i class="fas fa-balance-scale"></i>
+                                                                </span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="gray-round">
+                                                                    <i class="fas fa-heart"></i>
+                                                                </span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!--row-->
+                        </div> <!--col-sm-8-->
+                        <div class="col-sm-4"> <!--carousel testimonials-->
+                            <div class="row">
+                                <div class="block_title b-r">
+                                    <div class="left">
+                                        <p>Testimonials</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="carouselExampleLight" class="carousel carousel-light slide" data-bs-ride="carousel">
+                                    <div class="carousel-indicators">
+                                        <button type="button" data-bs-target="#carouselExampleLight" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                        <button type="button" data-bs-target="#carouselExampleLight" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                        <button type="button" data-bs-target="#carouselExampleLight" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                    </div>
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active" data-bs-interval="10000">
+                                        <img src="../img/slider/slider1.jpeg" class="d-block w-100" alt="...">
+                                        <div class="carousel-caption d-none d-md-block">
+                                            <h5>First slide label</h5>
+                                            <p>Some representative placeholder content for the first slide.</p>
+                                        </div>
+                                        </div>
+                                        <div class="carousel-item" data-bs-interval="2000">
+                                        <img src="../img/slider/slider2.jpeg" class="d-block w-100" alt="...">
+                                        <div class="carousel-caption d-none d-md-block">
+                                            <h5>Second slide label</h5>
+                                            <p>Some representative placeholder content for the second slide.</p>
+                                        </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                        <img src="../img/slider/slider1.jpeg" class="d-block w-100" alt="...">
+                                        <div class="carousel-caption d-none d-md-block">
+                                            <h5>Third slide label</h5>
+                                            <p>Some representative placeholder content for the third slide.</p>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleLight" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleLight" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                    </div>
+                            </div>
+                        </div> <!--col-sm-4-->
+                    </div>
+                        
+                </section>
+            </div> <!--container-->
+       </main>
+       
+       <footer> <!--подвал сайта-->
+            <div class="container footer_info">
+                <div class="row mb-4">
+                    <div class="col md-4 me-5">
+                        <div class="">
+                            <img src="../img/header/Logo.png" alt="logo">
+                        </div>
+                        <div>
+                            <p class="italic text_decoration mt-5">Miukid is a premium eCommerce theme with
+                                advanced admin module.</p>
+                        </div>
+                        <div class="mt-4">
+                            <ul class="ul_li_">
+                                <li class="mt-2">
+                                    <a href="tel:+818051713521" class="text_decoration">
+                                        <i class="fas fa-phone-alt me-3"></i>
+                                        <span>+81 80 5171 3521</span>
+                                    </a>
+                                </li>
+                                <li class="mt-2">
+                                    <a href="mailto:alina011988@icloud.com" class="text_decoration">
+                                        <i class="fas fa-envelope-open-text me-3"></i>
+                                        <span>alina011988@icloud.com</span>
+                                    </a>
+                                </li>
+                                <li class="mt-2">
+                                    <a href="#" class="text_decoration">
+                                        <i class="far fa-clock me-3"></i>
+                                        <span>8:00 - 19:00, Monday - Saturday, Sunday - closed</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="btn_call">
+                                <a href="tel:+818051713521">
+                                    <p>Contact me</p>
+                                </a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col md-2 ms-3">
+                        <div class="info text_decoration mt-4">
+                            <p>Information</p>
+                            <hr class="info-hr">
+                            <ul class="ul_li_">
+                                <li class="mt-2">About Us</li>
+                                <li class="mt-2">Shipping & Returns</li>
+                                <li class="mt-2">Privacy Notice</li>
+                                <li class="mt-2">Conditions of Use</li>
+                                <li class="mt-2">RSS</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col md-2">
+                        <div class="info text_decoration mt-4">
+                            <p>Service</p>
+                            <hr class="service-hr">
+                            <ul class="ul_li_">
+                                <li class="mt-2">Online Support</li>
+                                <li class="mt-2">Help & FAQs</li>
+                                <li class="mt-2">Call Center</li>
+                                <li class="mt-2">Contact Us</li>
+                                <li class="mt-2">Custom Link</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col md-4 insta">
+                        <div class="info mt-4">
+                            <p>Instagram</p>
+                            <hr class="insta-hr">
+                            <ul class="ul_li">
+                                <li>
+                                    <img src="../img/footer/insta/img1.jpeg" alt="img1.jpeg">
+                                </li>
+                                <li>
+                                    <img src="../img/footer/insta/img2.jpeg" alt="img1.jpeg">
+                                </li>
+                                <li>
+                                    <img src="../img/footer/insta/img3.jpeg" alt="img1.jpeg">
+                                </li>
+                                <li>
+                                    <img src="../img/footer/insta/img4.jpeg" alt="img1.jpeg">
+                                </li>
+                            </ul>
+                            <ul class="ul_li">
+                                <li>
+                                    <img src="../img/footer/insta/img5.jpeg" alt="img1.jpeg">
+                                </li>
+                                <li>
+                                    <img src="../img/footer/insta/img6.jpeg" alt="img1.jpeg">
+                                </li>
+                                <li>
+                                    <img src="../img/footer/insta/img7.jpeg" alt="img1.jpeg">
+                                </li>
+                                <li>
+                                    <img src="../img/footer/insta/img8.jpeg" alt="img1.jpeg">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row ms-1">
+                    <div class="col md-6">
+                        <ul class="ul_li left">
+                            <li>
+                                <a href="#">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fab fa-skype"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fab fa-vine"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fab fa-vk"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col md-6">
+                        <ul class="ul_li right footer_text">
+                            <a href="#"><li>Home</li></a>
+                            <a href="#"><li>New Arrivals</li></a>
+                            <a href="#"><li>Site Map</li></a>
+                        </ul>
+                    </div>
+                    <hr>
+                    <div class="col md-6 mb-4">
+                        <p class="text_decoration">Copyright © 2021 by <span>EngoTheme.</span> All Rights Reserved.</p>
+                    </div>
+                    <div class="col md-6 mb-4">
+                        <ul class="ul_li right">
+                            <li><a href="#"><img src="../img/footer/payment/paypal.png" alt="paypal"></a></li>
+                            <li><a href="#"><img src="../img/footer/payment/visa.png" alt="visa"></a></li>
+                            <li><a href="#"><img src="../img/footer/payment/sirrus.png" alt="sirrus"></a></li>
+                            <li><a href="#"><img src="../img/footer/payment/discover.png" alt="discover"></a></li>
+                            <li><a href="#"><img src="../img/footer/payment/ebay.png" alt="ebay"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+       </footer>
+    </body>
+
+    <script src="../dist/bundle.js"></script>
     
-</body>
+    
+   
+    
 </html>
