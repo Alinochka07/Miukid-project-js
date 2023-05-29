@@ -19,6 +19,6 @@ function calculate_cart() {
 };
 
 
-module.exports = calculate_cart;
+export default calculate_cart;
 
 

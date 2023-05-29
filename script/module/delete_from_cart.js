@@ -19,4 +19,4 @@ function funct_delete_items_from_cart(calculate_cart, count_items_in_cart) {
     }
 };
 
-module.exports = funct_delete_items_from_cart;
+export default funct_delete_items_from_cart;

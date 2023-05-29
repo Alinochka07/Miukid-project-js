@@ -11,7 +11,12 @@
     "core-js": "^3.30.2",
     "es6-promise-polyfill": "^1.2.0",
     "jquery": "^3.7.0",
-    "json-server": "^0.17.3",
+    "json-server": "^0.17.3"
+  },
+  "scripts": {
+    "build": "webpack --config webpack.config.js"
+  },
+  "devDependencies": {
     "webpack": "^5.84.1",
     "webpack-cli": "^5.1.1"
   }

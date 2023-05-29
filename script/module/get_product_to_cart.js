@@ -128,4 +128,4 @@ function getProductsToCart() {
         });
 };
 
-module.exports = getProductsToCart;
+export default getProductsToCart;

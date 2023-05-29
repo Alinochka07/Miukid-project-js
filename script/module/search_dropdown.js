@@ -1,9 +1,8 @@
-(function() {
-        'use strict';
+'use strict';
     
-        // Dropdown list of search.        
-    
-            const   search = document.querySelector("[name='search']"),
+        // Dropdown list of search.  
+        const search_dropdown = () => {
+                const   search = document.querySelector("[name='search']"),
             search_drop_down = document.querySelector(".search-drop-down");
     
             search.addEventListener("input", (e) => {
@@ -31,4 +30,7 @@
     
     
             })
-        })
+        }      
+    
+            
+export default search_dropdown;
