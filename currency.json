@@ -1,0 +1,11 @@
+
+    {
+        "currency": {
+            "usd": 102.89,
+            "usdToKgs": 87.95,
+            "kgsToUsd": 0.012,
+            "ruToKgs": 1.02,
+            "kgsToRu": 0.98,
+            "kgsToEuro": 0.011
+        }
+    }
